@@ -47,13 +47,23 @@ export class Calculadora{
         let valorTotal = custoFixoProduto + custoVariavelProduto + this.valorSacolas + produto.valorUnitario; 
         let margemContribuicao = this.calcularMargemContribuicao(valorTotal, produto, fronteira, frete);
         if( margemContribuicao <  27.0){
-                this.margemLucro += 0.5;
+                this.margemLucro += 0.05;
                 valorTotal = this.calcularValorProduto(produto, fronteira, frete);
         } 
 
         return valorTotal;
     }
 
-    
+    calcularMargemContribuicao(valorVendaProduto, produto:Produto, fronteira, frete){
+            // MC = PV – ( CV + DV )
+            //let 
+            //let margemContribuicao = (produto.valorUnitario)
+            let custoFixoProduto = this.calcularCustoFixoProduto(produto, fronteira, frete)+produto.valorUnitario;
+            let custoVariavelProduto = this.calcularCustoVariavelProduto(valorVendaProduto)+this.valorSacolas;
+            let margemContribuicao = (valorVendaProduto-custoVariavelProduto-custoFixoProduto);
+            margemContribuicao = margemContribuicao/valorVendaProduto;
+            margemContribuicao = margemContribuicao*100;
+            return margemContribuicao;
+    }
 }
 

@@ -6,6 +6,7 @@ export class Produto{
     valorFinal:number;
     icms:number;
     ipi:number;
+    margemContribuicao:number;
 
     
 }

@@ -24,6 +24,10 @@ export class FileUploadComponent implements OnInit {
   ngOnInit() {
   }
 
+  atualizarMargemContribuicao(produto:Produto){
+      produto.margemContribuicao = this.calculadora.calcularMargemContribuicao(produto.valorFinal, produto, this.percentualFronteira, this.percentualFrete);
+  }
+
   openFile(event) {
     let input = event.target;
     for (var index = 0; index < input.files.length; index++) {
@@ -62,7 +66,7 @@ export class FileUploadComponent implements OnInit {
                 produtoNfe.icms = Number(valorICMS);
                 produtoNfe.ipi = Number(ipi);
                 produtoNfe.valorFinal = this.calculadora.calcularValorProduto(produtoNfe, this.percentualFrete, this.percentualFronteira);
-                
+                produtoNfe.margemContribuicao = this.calculadora.calcularMargemContribuicao(produtoNfe.valorFinal, produtoNfe, this.percentualFronteira, this.percentualFrete);
                 this.produtos.push(produtoNfe);
             }
         }
