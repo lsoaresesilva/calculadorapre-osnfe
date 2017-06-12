@@ -1,0 +1,26 @@
+<input type="file" accept="xml/plain" (change)="openFile($event)">
+<br/><br/>
+Produtos da NFE:
+<br/>
+<br/>
+% de imposto fronteira: <input />
+<br/>
+% de frete <input />
+<br/>
+<table style="width:100%;border:1px solid black">
+    <tr>
+        <td style="width:40%">Nome</td>
+        <td style="width:5%">Qtd</td>
+        <td style="width:5%">ICMS</td>
+        <td style="width:15%">V. compra</td>
+        <td style="width:15%">V. venda</td>
+        <td style="width:15%">Margem de contribuição</td>
+    </tr>
+    <tr *ngFor="let produto of produtos">
+        <td>{{produto.descricao}}</td>
+        <td>{{produto.quantidade}}</td>
+        <td>{{produto.icms}}</td>
+        <td>{{produto.valorUnitario}}</td>
+        <td>{{produto.valorFinal}}</td>
+    </tr>
+</table>
