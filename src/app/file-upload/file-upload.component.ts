@@ -10,22 +10,20 @@ import {Calculadora} from '../models/calculadora';
 export class FileUploadComponent implements OnInit {
 
    produtos:Array<Produto>;
-   percentualFrete:number;
-   percentualFronteira:number;
+   
    calculadora:Calculadora;
 
   constructor() { 
     this.produtos = new Array<any>();
     this.calculadora = new Calculadora();
-    this.percentualFrete = 0.13;
-    this.percentualFronteira = 0.08;
+    
   }
 
   ngOnInit() {
   }
 
   atualizarMargemContribuicao(produto:Produto){
-      produto.margemContribuicao = this.calculadora.calcularMargemContribuicao(produto.valorFinal, produto, this.percentualFronteira, this.percentualFrete);
+      produto.margemContribuicao = produto.calcularMargemContribuicao(produto.valorFinal);
   }
 
   openFile(event) {
@@ -56,8 +54,6 @@ export class FileUploadComponent implements OnInit {
                     }
                 }
 
-                    
-                
                 let ipi = imposto.getElementsByTagName("IPI")[0].getElementsByTagName("IPITrib")[0].getElementsByTagName("vIPI")[0].textContent;
                 let produtoNfe = new Produto();
                 produtoNfe.descricao = descricao;
@@ -65,8 +61,8 @@ export class FileUploadComponent implements OnInit {
                 produtoNfe.valorUnitario = Number(valorUnitario);
                 produtoNfe.icms = Number(valorICMS);
                 produtoNfe.ipi = Number(ipi);
-                produtoNfe.valorFinal = this.calculadora.calcularValorProduto(produtoNfe, this.percentualFrete, this.percentualFronteira);
-                produtoNfe.margemContribuicao = this.calculadora.calcularMargemContribuicao(produtoNfe.valorFinal, produtoNfe, this.percentualFronteira, this.percentualFrete);
+                produtoNfe.valorFinal = produtoNfe.calcularValorProduto(produtoNfe);
+                produtoNfe.margemContribuicao = produtoNfe.calcularMargemContribuicao(produtoNfe.valorFinal);
                 this.produtos.push(produtoNfe);
             }
         }
