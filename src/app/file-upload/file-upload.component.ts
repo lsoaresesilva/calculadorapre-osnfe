@@ -10,12 +10,9 @@ import {Calculadora} from '../models/calculadora';
 export class FileUploadComponent implements OnInit {
 
    produtos:Array<Produto>;
-   
-   calculadora:Calculadora;
 
   constructor() { 
     this.produtos = new Array<any>();
-    this.calculadora = new Calculadora();
     
   }
 
@@ -23,7 +20,8 @@ export class FileUploadComponent implements OnInit {
   }
 
   atualizarMargemContribuicao(produto:Produto){
-      produto.margemContribuicao = produto.calcularMargemContribuicao(produto.valorFinal);
+      let calculadora:Calculadora = new Calculadora(produto);
+      produto.margemContribuicao = calculadora.calcularMargemContribuicao(produto.valorFinal);
   }
 
   openFile(event) {
@@ -61,8 +59,11 @@ export class FileUploadComponent implements OnInit {
                 produtoNfe.valorUnitario = Number(valorUnitario);
                 produtoNfe.icms = Number(valorICMS);
                 produtoNfe.ipi = Number(ipi);
-                produtoNfe.valorFinal = produtoNfe.calcularValorProduto(produtoNfe);
-                produtoNfe.margemContribuicao = produtoNfe.calcularMargemContribuicao(produtoNfe.valorFinal);
+                let calculadora:Calculadora = new Calculadora(produtoNfe);
+                
+                
+                produtoNfe.valorFinal = calculadora.calcularValorProduto();
+                produtoNfe.margemContribuicao = calculadora.calcularMargemContribuicao(produtoNfe.valorFinal);
                 this.produtos.push(produtoNfe);
             }
         }
