@@ -17,7 +17,7 @@ export class NFE {
         this.taxasAdicionais = 0.1;
         this.margemLucro = 0.2;
         this.valorSacolas = 2;
-        this.percentualFrete = 0;
+        this.percentualFrete = 0.13;
         this.percentualFronteira = 0.08;
     }
 

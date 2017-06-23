@@ -48,17 +48,31 @@ export class FileUploadComponent implements OnInit {
                     let match = dado.match('ICMS.*');
                     if(match.length > 0){
                         let tipoICMS = icms.getElementsByTagName(match[0])[0];
-                        var valorICMS = tipoICMS.getElementsByTagName("vICMS")[0].textContent;
+                        let tagValorICMS = tipoICMS.getElementsByTagName("vICMS")[0];
+                        var valorICMS = null;
+                        if( tagValorICMS != null ){
+                            valorICMS = tagValorICMS.textContent;
+                        }else{
+                            valorICMS = Number(valorUnitario)*0.12;
+                        }
                     }
                 }
 
-                let ipi = imposto.getElementsByTagName("IPI")[0].getElementsByTagName("IPITrib")[0].getElementsByTagName("vIPI")[0].textContent;
+                let tagIPI = imposto.getElementsByTagName("IPI")[0];
+                let valorIPI = null;
+                if( tagIPI != null){
+                    valorIPI = tagIPI.getElementsByTagName("IPITrib")[0].getElementsByTagName("vIPI")[0].textContent;
+                }else{
+                    valorIPI = "0";
+                }
+                
+                
                 let produtoNfe = new Produto();
                 produtoNfe.descricao = descricao;
                 produtoNfe.quantidade = Number(quantidade);
                 produtoNfe.valorUnitario = Number(valorUnitario);
                 produtoNfe.icms = Number(valorICMS);
-                produtoNfe.ipi = Number(ipi);
+                produtoNfe.ipi = Number(valorIPI);
                 let calculadora:Calculadora = new Calculadora(produtoNfe);
                 
                 
