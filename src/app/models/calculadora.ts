@@ -9,7 +9,7 @@ export class Calculadora{
     }
 
     calcularCustoFixoProduto(){
-        let custoFixoProduto = this.produto.icms +
+        let custoFixoProduto = //this.produto.icms +
                                this.produto.ipi +
                                this.produto.valorUnitario*this.produto.nfe.percentualFrete+
                                this.produto.valorUnitario*this.produto.nfe.percentualFronteira;

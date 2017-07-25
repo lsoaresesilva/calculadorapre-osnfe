@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { ClassComponent } from './class/class.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FileUploadComponent,
+    ClassComponent,
     
   ],
   imports: [

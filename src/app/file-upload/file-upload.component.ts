@@ -59,11 +59,17 @@ export class FileUploadComponent implements OnInit {
                 }
 
                 let tagIPI = imposto.getElementsByTagName("IPI")[0];
-                let valorIPI = null;
-                if( tagIPI != null){
-                    valorIPI = tagIPI.getElementsByTagName("IPITrib")[0].getElementsByTagName("vIPI")[0].textContent;
-                }else{
-                    valorIPI = "0";
+                let valorIPI = "0";
+                if( tagIPI != null)
+                {
+                    let  tagIPITrib = tagIPI.getElementsByTagName("IPITrib")
+                    if( tagIPITrib.length > 0){
+                        let tagValorIPI = tagIPITrib[0].getElementsByTagName("vIPI");
+                        if( tagValorIPI.length > 0){
+                            valorIPI = tagValorIPI[0].textContent;
+                        }
+                    }
+                    
                 }
                 
                 
