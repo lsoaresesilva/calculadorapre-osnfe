@@ -11,8 +11,8 @@ export class Produto{
     margemContribuicao:number;
     nfe:NFE;
 
-    constructor(){
-        this.nfe = new NFE();
+    constructor(nfe:NFE){
+        this.nfe = nfe
         this.valorFinal = 0;
     }
 
