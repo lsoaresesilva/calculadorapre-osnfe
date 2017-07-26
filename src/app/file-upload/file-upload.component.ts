@@ -72,8 +72,8 @@ export class FileUploadComponent implements OnInit {
             this.nfe.comissaoVendas = this.formCustos.value.comissaoVendedor / 100;
             this.nfe.taxasAdicionais = this.formCustos.value.taxasAdicionais / 100;
             this.nfe.valorAdicional = Number(this.formCustos.value.valorAdicional);
-            this.nfe.margemLucro = this.formCustos.value.margemLucro / 100;
-            this.nfe.percentualDespesasFixas = this.formCustos.value.despesasFixas / 100;
+            this.nfe.margemLucro = 0//this.formCustos.value.margemLucro / 100;
+            this.nfe.percentualDespesasFixas = 0//this.formCustos.value.despesasFixas / 100;
             this.nfe.margemContribuicao = Number(this.formCustos.value.margemContribuicao);
             let calculadora: Calculadora = new Calculadora(this.produtos[i]);
             //

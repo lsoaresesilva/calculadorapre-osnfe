@@ -8,27 +8,74 @@
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
                 <li role="presentation"><a href="#danfe" aria-controls="danfe" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-upload"></span> Importar NFE (XML)</a></li>
-                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-minus-sign"></span> Custos do produto</a></li>
-                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus-sign"></span> Margem de lucro e contribuição</a></li>
-                <li role="presentation"><a href="#opas" aria-controls="opas" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-check"></span> Calcular preços</a></li>
+                <li role="presentation"><a href="#costs" aria-controls="costs" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-minus-sign"></span> Custos do produto</a></li>
+                <li role="presentation"><a href="#contribution" aria-controls="contribution" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus-sign"></span> Margem de lucro e contribuição</a></li>
+                <li role="presentation"><a href="#calculation" aria-controls="calculation" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-check"></span> Calcular preços</a></li>
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="home">
-                    <div class="jumbotron" style="padding:45px 15px 15px">
+                    <div class="jumbotron" style="padding:0px 15px 15px">
+                        <div style="margin-bottom:30px;">
+                            <h1 style="font-size:36px" class="text-center">Calcule facilmente o preço dos seus produtos!</h1>
+                        </div>
+                        <p>Nosso serviço sugere automaticamente os preços de venda para todos os produtos de uma nota fiscal
+                            eletrônica - DANFE (XML).</p>
+                        <div class="row" style="margin-bottom:50px;">
+                            <div class="col-md-4  text-center">
+                                <div class="row">
+                                    <img src="../../assets/economia_tempo.png" />
+                                </div>
+                                <div class="row" style="margin-top:20px">
+                                    <span class="advantages-header">Economia de tempo</span>
+                                </div>
+                                <div class="row">
+                                    <span class="advantages-sub-text">Não se preocupe com as complexidades e ganhe tempo!</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="row">
+                                    <img src="../../assets/calculo_automatico.png" />
+                                </div>
+                                <div class="row" style="margin-top:20px">
+                                    <span class="advantages-header">Cálculo automático</span>
+                                </div>
+                                <div class="row">
+                                    <span class="advantages-sub-text">Calcule o preço de todos os produtos com poucos cliques!</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="row">
+                                    <img src="../../assets/gratis.png" />
+                                </div>
+                                <div class="row" style="margin-top:20px">
+                                    <span class="advantages-header">Serviço gratuito</span>
+                                </div>
+                                <div class="row">
+                                    <span class="advantages-sub-text">E o melhor de tudo, é <strong>GRÁTIS</strong>!</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-center">É super simples, são apenas 3 passos:</p>
+                    
+                        <table style="margin: auto;">
+                            <tr>
+                                <td><img src="../../assets/upload_danfe.png" class="iconUsageAlignment"/></td>
+                                <td><span class="how-to-use-header">Importe a sua NFE (DANFE)</span></td>
+                            </tr>
+                            <tr>
+                                <td><img src="../../assets/custos_produtos.png" class="iconUsageAlignment"/></td>
+                                <td><span class="how-to-use-header">Informe os seus custos básicos</span></td>
+                            </tr>
+                            <tr>
+                                <td><img src="../../assets/margem_de_contribuicao.png" class="iconUsageAlignment"/></td>
+                                <td><span class="how-to-use-header">Defina a margem de contribuição desejada</span></td>
+                            </tr>
+                        </table>
 
-                        <h1 style="font-size:36px">Calcule facilmente o preço dos seus produtos!</h1>
-                        <p>Nosso serviço sugere automaticamente os preços de venda para todos os produtos de uma nota fiscal eletrônica - DANFE (XML).
-                        <p>É muito simples, são apenas 3 passos:</p>
-                        <ol>
-                            <li>Importe a NFE</li>
-                            <li>Informe os custos que incidem sobre os seus produtos (frete, comissão dos vendedores, entre
-                                outros)
-                            </li>
-                            <li>Informe a margem lucro e de contribuição desejada</li>
-                        </ol>
-                        <p><a href="#danfe" aria-controls="danfe" role="tab" data-toggle="tab" a class="btn btn-primary btn-lg">Comece agora mesmo, é grátis!</a></p>
+                        <p class="text-center"><a href="#danfe" aria-controls="danfe" role="tab" data-toggle="tab" a class="btn btn-primary btn-lg">Comece agora mesmo, é grátis!</a></p>
+
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="danfe">
@@ -40,15 +87,20 @@
                             <p>Faça a <strong>importação do XML (DANFE)</strong> da sua nota fiscal eletrônica (NFE). Este arquivo,
                                 de extensão .xml, é enviado pelo seu fornecedor para o e-mail de sua empresa.
                             </p>
-                            <h4>Importar o XML da DANFE</h4>
+                            <div style="margin:20px 0 20px 0">
                             <input type="file" accept=".xml" (change)="openFile($event)" style="margin:10px 0 10px 0">
-                            <div class="well" >
-                                <input id="agreement" type="checkbox" value="false" (change)="setAgreement($event)" name="agreement" formControlName="agreement" /><label for="agreement" style="display:inline"> <small> Concordo em utilizar este serviço sabendo que os valores calculados são sugestivos e podem conter erros. Desta forma devem ser validados pelo empresário e/ou contador da empresa, não sendo de responsabilidade desta empresa quaisquer usos indevidos do mesmo.</small></label>
+                            </div>
+                            <div class="well">
+                                <input id="agreement" type="checkbox" value="false" (change)="setAgreement($event)" name="agreement" formControlName="agreement"
+                                /><label for="agreement" style="display:inline"> <small> Concordo em utilizar este serviço sabendo que os valores calculados são sugestivos e passíveis de falhas. Desta forma devem ser validados pelo empresário e/ou contador da empresa, não sendo de responsabilidade desta empresa quaisquer usos indevidos do mesmo.</small></label>
+                            </div>
+                            <div *ngIf="produtos.length != 0 && agreement == true">
+                                <p><a href="#costs" aria-controls="danfe" role="tab" data-toggle="tab" a class="btn btn-primary">Próximo passo <span class="glyphicon glyphicon-arrow-right"></span></a></p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="messages">
+                <div role="tabpanel" class="tab-pane" id="costs">
 
                     <div *ngIf="produtos.length != 0; else elseBlock">
                         <div *ngIf="agreement != false; else elseBlockAgreement">
@@ -59,11 +111,7 @@
                                 <div class="panel-body">
                                     <p>Alguns itens como o valor do frete, imposto de fronteira, comissão de vendedor, entre
                                         outros devem ser considerados no cálculo do valor final do produto.</p>
-                                    <p>
-                                        <small>Você deve saber os valores de cada custo e dividir pelo valor da nota fiscal para identificar o % correspondente.<br/>
-                    Por exemplo, um valor de nota fiscal (NF)   de R$ 1.000 e um frete com custo de R$ 100 o frete corresponde a 10% desta nota fiscal.</small>
-                                    </p>
-                                    <strong>Observação:</strong> informar o valor sem o %.
+                                    <p><strong>Observação:</strong> informar o valor apenas com números sem o %.</p>
                                     <table class="table table-bordered">
 
                                         <thead>
@@ -76,53 +124,59 @@
                                         <tbody>
                                             <tr>
                                                 <td>Frete</td>
-                                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="frete" name="frete"
-                                                    /></td>
-                                                <td></td>
+                                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="frete"
+                                                        name="frete" /></td>
+                                                <td>Por exemplo, um valor de nota fiscal (NF) de R$ 1.000 e um frete com custo
+                                                    de R$ 100 o frete corresponde a 10% desta nota fiscal.</td>
                                             </tr>
                                             <tr>
                                                 <td>Imposto de fronteira</td>
-                                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="fronteira" name="fronteira"
-                                                    /></td>
-                                                <td></td>
+                                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="fronteira"
+                                                        name="fronteira" /></td>
+                                                <td>Informe apenas para compras interestatudais. Calcule a partir de uma média
+                                                    dos últimos pagamentos deste imposto para notas deste fornecedor. Por
+                                                    exemplo, uma NF no valor de R$ 1.000 e com imposto de fronteira no valor
+                                                    de R$ 150 representa 15% do valor da nota.</td>
                                             </tr>
                                             <tr>
                                                 <td>Alíquota do simples</td>
-                                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="aliquotaSimples" name="aliquotaSimples"
-                                                    /></td>
-                                                <td></td>
+                                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="aliquotaSimples"
+                                                        name="aliquotaSimples" /></td>
+                                                <td>Alíquota de pagamento do simples de acordo com o seu faturamento. Por exemplo
+                                                    para o comércio: 4%, 5.7%, 6.84%, e assim em diante.</td>
                                             </tr>
                                             <tr>
                                                 <td>Taxas do cartão de crédito/débito</td>
-                                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="taxaCartao" name="taxaCartao"
-                                                    /></td>
-                                                <td></td>
+                                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="taxaCartao"
+                                                        name="taxaCartao" /></td>
+                                                <td>Uma média de quantos % a sua operadora de cartões cobra das vendas no cartão.</td>
                                             </tr>
                                             <tr>
                                                 <td>Comissão do vendedor</td>
-                                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="comissaoVendedor" name="comissaoVendedor"
-                                                    /></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Despesas fixas</td>
-                                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="despesasFixas" name="despesasFixas"
-                                                    /></td>
-                                                <td></td>
+                                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="comissaoVendedor"
+                                                        name="comissaoVendedor" /></td>
+                                                <td>Se sua empresa oferece comissão aos vendedores então o percentual pago deve
+                                                    ser informado aqui (sem o símbolo de %).</td>
                                             </tr>
                                             <tr>
                                                 <td>Taxas adicionais</td>
-                                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="taxasAdicionais" name="taxasAdicionais"
-                                                    /></td>
-                                                <td></td>
+                                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="taxasAdicionais"
+                                                        name="taxasAdicionais" /></td>
+                                                <td>Existem outras taxas que incidem sobre o seu negócio? como fidelização, percentual
+                                                    sobre avarias, entre outros? Informe neste espaço.</td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <p>
-                                        Se existir um valor em R$ que queira acrescentar ao cálculo informe abaixo:<br/>
-                                        <small>Exemplo, sabendo que em média os custos da sacola utilizada em cada venda é de R$ 2,00. Basta informar o valor 2 abaixo que ele será acrescentado ao valor de cada produto.</small><br/>
-                                        <input type="number" (keyup)="recalcularPrecos()" formControlName="valorAdicional" name="valorAdicional" />
+                                    <p>Se existir um valor em R$ que queira acrescentar ao cálculo informe abaixo:</p>
+                                    <div class="well"><small>Exemplo, sabendo que em média os custos da sacola utilizada em cada venda é de R$ 2,00. Basta informar o valor 2 abaixo que ele será acrescentado ao valor de cada produto.</small></div>
+                                    <p><strong>Custos adicionais em R$</strong></p>
+                                    <p> <input type="number" (keyup)="recalcularPrecos()" formControlName="valorAdicional" name="valorAdicional"
+                                        />
                                     </p>
+
+                                    <div *ngIf="produtos.length != 0 && agreement == true" style="margin:10px 0 0 0">
+                                        <p><a href="#contribution" aria-controls="danfe" role="tab" data-toggle="tab" a class="btn btn-primary">Próximo passo <span class="glyphicon glyphicon-arrow-right"></span></a></p>
+                                    </div>
                                 </div>
                             </div>
 
@@ -140,41 +194,28 @@
                         </div>
                     </ng-template>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="settings">
+                <div role="tabpanel" class="tab-pane" id="contribution">
                     <div *ngIf="produtos.length != 0; else elseBlock">
                         <div *ngIf="agreement != false; else elseBlockAgreement">
-                        <div class="panel panel-default">
+                            <div class="panel panel-default">
 
-                            <div class="panel-heading">
-                                <h3 class="panel-title primary">Informe a margem de lucro e contribuição desejadas</h3>
-                            </div>
-                            <div class="panel-body">
-                                <p>A <strong>margem de lucro</strong> é acrescentada sobre o valor de aquisição do produto (valor
-                                    de compra + IPI + frete + fronteira). Ela deve ser informada em percentual variando de
-                                    0 a 100 sem o símbolo de %.</p>
-                                <div class="panel panel-primary">
-                                    <div class="panel-body">
-                                        Exemplo
-                                    </div>
-                                    <div class="panel-footer">
-                                        <small>
-                                        Um produto comprado a R$ 10, cujo IPI foi de 5%, o valor total do frete representa 5% do valor da nota e o imposto de fronteira é em média 10% do valor da nota, possui valor de aquisição de: R$ 10 + R$ 0,50 (IPI) + R$ 0,50 (frete) + R$ 1,00 (fronteira) = R$ 12,00. Uma margem de lucro de 20% significa R$ 12 + R$ 2,4 (20% de R$ 12).
-                                    </small>
+                                <div class="panel-heading">
+                                    <h3 class="panel-title primary">Informe a margem de contribuição desejadas</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>A <strong>margem de contribuição desejada</strong> deve ser informada de 0 a 100, representando
+                                        o % desejado. Este valor deve ser calculado de modo que a margem de contribuição
+                                        dos produtos seja suficiente para o custeio do empreendimento e geração de lucro.
+                                        Mais informações sobre como realizar este cálculo podem ser obtidas <a href="https://www.sebrae.com.br/sites/PortalSebrae/bis/cartilha-saiba-mais-o-que-e-margem-de-contribuicao,a45ab88efc047410VgnVCM2000003c74010aRCRD"
+                                            target="_blank">neste link</a> do Sebrae</p>
+                                    <strong>Margem de contribuição desejada</strong><br/>
+                                    <input type="number" (keyup)="recalcularPrecos()" formControlName="margemContribuicao" name="margemContribuicao" />
+                                    <div *ngIf="produtos.length != 0 && agreement == true" style="margin:10px 0 0 0">
+                                        <p><a href="#calculation" aria-controls="danfe" role="tab" data-toggle="tab" a class="btn btn-primary">Próximo passo <span class="glyphicon glyphicon-arrow-right"></span></a></p>
                                     </div>
                                 </div>
-                                <p>A <strong>margem de contribuição desejada</strong> deve ser informada de 0 a 100, representando
-                                    o % desejado.</p>
-
-
-
-                                <strong>Margem de lucro</strong><br/>
-                                <input type="number" (keyup)="recalcularPrecos()" formControlName="margemLucro" name="margemLucro" />
-                                <br/>
-                                <strong>Margem de contribuição</strong><br/>
-                                <input type="number" (keyup)="recalcularPrecos()" formControlName="margemContribuicao" name="margemContribuicao" />
                             </div>
                         </div>
-                    </div>
                     </div>
                     <ng-template #elseBlockAgreement>
                         <div class="well">
@@ -188,58 +229,62 @@
                     </ng-template>
 
                 </div>
-                <div role="tabpanel" class="tab-pane" id="opas">
+                <div role="tabpanel" class="tab-pane" id="calculation">
                     <div *ngIf="produtos.length != 0; else elseBlock">
                         <div *ngIf="agreement != false; else elseBlockAgreement">
-                        <div class="panel panel-primary">
-                            O cálculo do valor dos produtos utiliza a seguinte fórmula:
-                            
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Preços de venda calculados para as mercadorias</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="panel panel-primary">
-                                    <div class="panel-body">
-                                        Dica!
-                                    </div>
-                                    <div class="panel-footer">
-                                        <p>
-                                    É possível alterar o valor sugerido por nós e observar as variações na margem de contribuição.
-                                </p>
-                                    
-                                    </div>
-                                </div>
-                                
-                                <form>
-                                    <table class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th style="width:40%">Nome</th>
-                                                <th style="width:5%">Qtd</th>
-                                                <th style="width:15%">Valor de compra</th>
-                                                <th style="width:15%">V. sugerido para venda</th>
-                                                <th style="width:15%">Margem de contribuição (em %)</th>
-                                                <th style="width:10%">Margem de lucro bruto</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr *ngFor="let produto of produtos; let rowIndex=index">
-                                                <td>{{produto.descricao}}</td>
-                                                <td>{{produto.quantidade}}</td>
-                                                <td>{{produto.valorUnitario}}</td>
-                                                <td><input type="number" [(ngModel)]="produto.valorFinal" (change)="atualizarMargemContribuicao(produto)"
-                                                        name="valorFinal{{rowIndex}}" /></td>
-                                                <td><input type="number" [(ngModel)]="produto.margemContribuicao" (change)="atualizarMargemContribuicao(produto)"
-                                                        name="margemContribuicao{{rowIndex}}" disabled/></td>
-                                                <td>{{((produto.valorUnitario/produto.valorFinal)*100).toFixed(2)}}%</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </form>
-                            </div>
-                        </div>
+                            <div class="panel panel-primary">
 
-                    </div>
+
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Preços de venda calculados para as mercadorias</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>O cálculo do valor dos produtos utiliza como referência a margem de contribuição desejada.
+                                        Desta forma o valor de comercialização é calculado considerando os custos e despesas
+                                        variáveis para cada produto, de modo que o valor sugerido seja o suficiente para
+                                        gerar a margem de contribuição desejada.</p>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-body">
+                                            Dica!
+                                        </div>
+                                        <div class="panel-footer">
+                                            <p>
+                                                É possível alterar o valor sugerido por nós e observar as variações na margem de contribuição.
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+                                    <form>
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:40%">Nome</th>
+                                                    <th style="width:5%">Qtd</th>
+                                                    <th style="width:15%">Valor de compra</th>
+                                                    <th style="width:15%">V. sugerido para venda</th>
+                                                    <th style="width:15%">Margem de contribuição (em %)</th>
+                                                    <th style="width:10%">Margem de lucro bruto</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let produto of produtos; let rowIndex=index">
+                                                    <td>{{produto.descricao}}</td>
+                                                    <td>{{produto.quantidade}}</td>
+                                                    <td>{{produto.valorUnitario}}</td>
+                                                    <td><input type="number" [(ngModel)]="produto.valorFinal" (change)="atualizarMargemContribuicao(produto)"
+                                                            name="valorFinal{{rowIndex}}" /></td>
+                                                    <td><input type="number" [(ngModel)]="produto.margemContribuicao" (change)="atualizarMargemContribuicao(produto)"
+                                                            name="margemContribuicao{{rowIndex}}" disabled/></td>
+                                                    <td>{{((produto.valorUnitario/produto.valorFinal)*100).toFixed(2)}}%</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                     <ng-template #elseBlockAgreement>
                         <div class="well">
