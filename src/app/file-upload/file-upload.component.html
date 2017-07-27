@@ -127,7 +127,7 @@
                                                 <td><input type="number" (keyup)="recalcularPrecos()" formControlName="frete"
                                                         name="frete" /></td>
                                                 <td>Por exemplo, um valor de nota fiscal (NF) de R$ 1.000 e um frete com custo
-                                                    de R$ 100 o frete corresponde a 10% desta nota fiscal.</td>
+                                                    de R$ 100 o frete corresponde a 10% desta nota fiscal. Para frete grátis (CIF) informe o valor 0.</td>
                                             </tr>
                                             <tr>
                                                 <td>Imposto de fronteira</td>
@@ -142,33 +142,33 @@
                                                 <td>Alíquota do simples</td>
                                                 <td><input type="number" (keyup)="recalcularPrecos()" formControlName="aliquotaSimples"
                                                         name="aliquotaSimples" /></td>
-                                                <td>Alíquota de pagamento do simples de acordo com o seu faturamento. Por exemplo
+                                                <td>Informe a alíquota de pagamento do simples em que a sua empresa se encaixa. Lembrando que varia de acordo com o seu faturamento, por exemplo
                                                     para o comércio: 4%, 5.7%, 6.84%, e assim em diante.</td>
                                             </tr>
                                             <tr>
-                                                <td>Taxas do cartão de crédito/débito</td>
+                                                <td>Taxas da maquineta de cartão de crédito/débito</td>
                                                 <td><input type="number" (keyup)="recalcularPrecos()" formControlName="taxaCartao"
                                                         name="taxaCartao" /></td>
-                                                <td>Uma média de quantos % a sua operadora de cartões cobra das vendas no cartão.</td>
+                                                <td>Cada operadora de maquineta de cartão cobra um percentual por cada transação realizada. Este percentual varia para compras no débito ou crédito e também quando são parceladas. Você pode calcular uma média a partir do histórico de suas vendas ou na dúvida utilizar a maior taxa cobrada, assim assegura todas as demais.</td>
                                             </tr>
                                             <tr>
                                                 <td>Comissão do vendedor</td>
                                                 <td><input type="number" (keyup)="recalcularPrecos()" formControlName="comissaoVendedor"
                                                         name="comissaoVendedor" /></td>
                                                 <td>Se sua empresa oferece comissão aos vendedores então o percentual pago deve
-                                                    ser informado aqui (sem o símbolo de %).</td>
+                                                    ser informado aqui.</td>
                                             </tr>
                                             <tr>
                                                 <td>Taxas adicionais</td>
                                                 <td><input type="number" (keyup)="recalcularPrecos()" formControlName="taxasAdicionais"
                                                         name="taxasAdicionais" /></td>
-                                                <td>Existem outras taxas que incidem sobre o seu negócio? como fidelização, percentual
-                                                    sobre avarias, entre outros? Informe neste espaço.</td>
+                                                <td>Existem outras taxas que incidem sobre o seu negócio? como percentual destinado a cobrir um programa de fidelização ou que
+                                                    cobre avarias/furtos, entre outros? Informe aqui.</td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <p>Se existir um valor em R$ que queira acrescentar ao cálculo informe abaixo:</p>
-                                    <div class="well"><small>Exemplo, sabendo que em média os custos da sacola utilizada em cada venda é de R$ 2,00. Basta informar o valor 2 abaixo que ele será acrescentado ao valor de cada produto.</small></div>
+                                    <p>Se existir um valor em R$ que queira acrescentar a cada produto informe abaixo:</p>
+                                    <div class="well"><small>Por exemplo, sabendo que em média os custos da sacola utilizada para embalar os produtos, em cada venda, é de R$ 2,00. Basta informar o valor 2 que ele será acrescentado ao valor de cada produto.</small></div>
                                     <p><strong>Custos adicionais em R$</strong></p>
                                     <p> <input type="number" (keyup)="recalcularPrecos()" formControlName="valorAdicional" name="valorAdicional"
                                         />
