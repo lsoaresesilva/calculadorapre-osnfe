@@ -5,18 +5,18 @@
         <div class="col-md-10">
 
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-                <li role="presentation"><a href="#danfe" aria-controls="danfe" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-upload"></span> Importar NFE (XML)</a></li>
-                <li role="presentation"><a href="#costs" aria-controls="costs" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-minus-sign"></span> Custos do produto</a></li>
-                <li role="presentation"><a href="#contribution" aria-controls="contribution" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus-sign"></span> Margem de lucro e contribuição</a></li>
-                <li role="presentation"><a href="#calculation" aria-controls="calculation" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-check"></span> Calcular preços</a></li>
+            <ul class="nav nav-tabs" role="tablist" style="background: #026AA7" id="menu">
+                <li role="presentation" class="active" ><a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="home">Home</a></li>
+                <li role="presentation"><a href="#danfe" class="tabLink" aria-controls="danfe" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-upload"></span> Importar NFE (XML)</a></li>
+                <li role="presentation"><a href="#costs" class="tabLink" aria-controls="costs" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-minus-sign"></span> Custos do produto</a></li>
+                <li role="presentation"><a href="#contribution" class="tabLink" aria-controls="contribution" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus-sign"></span> Margem de lucro e contribuição</a></li>
+                <li role="presentation"><a href="#calculation" class="tabLink" aria-controls="calculation" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-check"></span> Calcular preços</a></li>
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="home">
-                    <div class="jumbotron" style="padding:0px 15px 15px">
+                    <div class="jumbotron" style="padding:10px 15px 15px">
                         <div style="margin-bottom:30px;">
                             <h1 style="font-size:36px" class="text-center">Calcule facilmente o preço dos seus produtos!</h1>
                         </div>
@@ -74,7 +74,7 @@
                             </tr>
                         </table>
 
-                        <p class="text-center"><a href="#danfe" aria-controls="danfe" role="tab" data-toggle="tab" a class="btn btn-primary btn-lg">Comece agora mesmo, é grátis!</a></p>
+                        <p class="text-center"><a onclick="$('#menu li:eq(1) a').tab('show')" href="#danfe" aria-controls="danfe" role="tab" data-toggle="tab" a class="btn btn-primary btn-lg">Comece agora mesmo, é grátis!</a></p>
 
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                                 /><label for="agreement" style="display:inline"> <small> Concordo em utilizar este serviço sabendo que os valores calculados são sugestivos e passíveis de falhas. Desta forma devem ser validados pelo empresário e/ou contador da empresa, não sendo de responsabilidade desta empresa quaisquer usos indevidos do mesmo.</small></label>
                             </div>
                             <div *ngIf="produtos.length != 0 && agreement == true">
-                                <p><a href="#costs" aria-controls="danfe" role="tab" data-toggle="tab" a class="btn btn-primary">Próximo passo <span class="glyphicon glyphicon-arrow-right"></span></a></p>
+                                <p><a href="#costs" onclick="$('#menu li:eq(2) a').tab('show')" aria-controls="danfe" role="tab" data-toggle="tab" a class="btn btn-primary">Próximo passo <span class="glyphicon glyphicon-arrow-right"></span></a></p>
                             </div>
                         </div>
                     </div>
@@ -175,7 +175,7 @@
                                     </p>
 
                                     <div *ngIf="produtos.length != 0 && agreement == true" style="margin:10px 0 0 0">
-                                        <p><a href="#contribution" aria-controls="danfe" role="tab" data-toggle="tab" a class="btn btn-primary">Próximo passo <span class="glyphicon glyphicon-arrow-right"></span></a></p>
+                                        <p><a href="#contribution" onclick="$('#menu li:eq(3) a').tab('show')"  aria-controls="danfe" role="tab" data-toggle="tab" a class="btn btn-primary">Próximo passo <span class="glyphicon glyphicon-arrow-right"></span></a></p>
                                     </div>
                                 </div>
                             </div>
@@ -211,7 +211,7 @@
                                     <strong>Margem de contribuição desejada</strong><br/>
                                     <input type="number" (keyup)="recalcularPrecos()" formControlName="margemContribuicao" name="margemContribuicao" />
                                     <div *ngIf="produtos.length != 0 && agreement == true" style="margin:10px 0 0 0">
-                                        <p><a href="#calculation" aria-controls="danfe" role="tab" data-toggle="tab" a class="btn btn-primary">Próximo passo <span class="glyphicon glyphicon-arrow-right"></span></a></p>
+                                        <p><a href="#calculation" onclick="$('#menu li:eq(4) a').tab('show')" aria-controls="danfe" role="tab" data-toggle="tab" a class="btn btn-primary">Próximo passo <span class="glyphicon glyphicon-arrow-right"></span></a></p>
                                     </div>
                                 </div>
                             </div>

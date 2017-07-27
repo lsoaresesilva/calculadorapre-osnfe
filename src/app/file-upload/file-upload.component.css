@@ -1,3 +1,11 @@
 .iconUsageAlignment{
     margin:0px 20px 10px;
 }
+
+.tabLink{
+    color: #ffffff;
+}
+
+.tabLink:hover{
+    color: #026AA7;
+}
