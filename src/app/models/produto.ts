@@ -5,7 +5,7 @@ export class Produto{
     descricao:String;
     quantidade:number;
     valorUnitario:number;
-    valorFinal:number;
+    valorVenda:number;
     icms:number;
     ipi:number;
     margemContribuicao:number;
@@ -13,7 +13,7 @@ export class Produto{
 
     constructor(nfe:NFE){
         this.nfe = nfe
-        this.valorFinal = 0;
+        this.valorVenda = 0;
     }
 
     

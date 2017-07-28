@@ -49,7 +49,7 @@ export class FileUploadComponent implements OnInit {
 
     atualizarMargemContribuicao(produto: Produto) {
         let calculadora: Calculadora = new Calculadora(produto);
-        produto.margemContribuicao = calculadora.calcularMargemContribuicao(produto.valorFinal);
+        produto.margemContribuicao = calculadora.calcularMargemContribuicao(produto.valorVenda);
     }
 
     isValidFile(file) {
@@ -78,8 +78,8 @@ export class FileUploadComponent implements OnInit {
             let calculadora: Calculadora = new Calculadora(this.produtos[i]);
             //
 
-            this.produtos[i].valorFinal = calculadora.calcularValorProduto();
-            this.produtos[i].margemContribuicao = calculadora.calcularMargemContribuicao(this.produtos[i].valorFinal);
+            this.produtos[i].valorVenda = calculadora.calcularValorProduto();
+            this.produtos[i].margemContribuicao = calculadora.calcularMargemContribuicao(this.produtos[i].valorVenda);
             let x = 2;
         }
     }
@@ -147,8 +147,8 @@ export class FileUploadComponent implements OnInit {
                         let calculadora: Calculadora = new Calculadora(produtoNfe);
 
 
-                        produtoNfe.valorFinal = calculadora.calcularValorProduto();
-                        produtoNfe.margemContribuicao = calculadora.calcularMargemContribuicao(produtoNfe.valorFinal);
+                        produtoNfe.valorVenda = calculadora.calcularValorProduto();
+                        produtoNfe.margemContribuicao = calculadora.calcularMargemContribuicao(produtoNfe.valorVenda);
                         this.produtos.push(produtoNfe);
                     }
                 }
