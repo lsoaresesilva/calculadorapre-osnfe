@@ -7,12 +7,21 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { ClassComponent } from './class/class.component';
 
 import { GrowlModule } from 'primeng/primeng';
+import { NfeUploadComponent } from './nfe-upload/nfe-upload.component';
+import { CostsComponent } from './costs/costs.component';
+import { ContributionMarginComponent } from './contribution-margin/contribution-margin.component';
+import { PriceCalculationComponent } from './price-calculation/price-calculation.component';
+import { NotaFiscalEletronicaService } from "app/nota-fiscal-eletronica.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     FileUploadComponent,
     ClassComponent,
+    NfeUploadComponent,
+    CostsComponent,
+    ContributionMarginComponent,
+    PriceCalculationComponent,
     
   ],
   imports: [
@@ -21,7 +30,7 @@ import { GrowlModule } from 'primeng/primeng';
     FormsModule,
     GrowlModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [NotaFiscalEletronicaService],
+  bootstrap: [NfeUploadComponent, CostsComponent, ContributionMarginComponent, PriceCalculationComponent]
 })
 export class AppModule { }

@@ -1,0 +1,98 @@
+<form [formGroup]="formCustos">
+    <div *ngIf="nfeService.produtos.length != 0; else elseBlock">
+        
+        <div *ngIf="nfeService.agreement != false; else elseBlockAgreement">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Informar os percentuais de valores que incidem no cálculo do produto</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Alguns itens como o valor do frete, imposto de fronteira, comissão de vendedor, entre outros devem ser
+                        considerados no cálculo do valor final do produto.</p>
+                    <p><strong>Observação:</strong> informar o valor apenas com números sem o %.</p>
+                    <table class="table table-bordered">
+
+                        <thead>
+                            <tr>
+                                <th style="width:20%">Custo</th>
+                                <th style="width:10%">% de incidência sobre a venda</th>
+                                <th style="width:70%">Descrição</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Frete</td>
+                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="frete" name="frete" /></td>
+                                <td>Por exemplo, um valor de nota fiscal (NF) de R$ 1.000 e um frete com custo de R$ 100 o frete
+                                    corresponde a 10% desta nota fiscal. Para frete grátis (CIF) informe o valor 0.</td>
+                            </tr>
+                            <tr>
+                                <td>Imposto de fronteira</td>
+                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="fronteira" name="fronteira"
+                                    /></td>
+                                <td>Informe apenas para compras interestatudais. Calcule a partir de uma média dos últimos pagamentos
+                                    deste imposto para notas deste fornecedor. Por exemplo, uma NF no valor de R$ 1.000 e
+                                    com imposto de fronteira no valor de R$ 150 representa 15% do valor da nota.</td>
+                            </tr>
+                            <tr>
+                                <td>Alíquota do simples</td>
+                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="aliquotaSimples" name="aliquotaSimples"
+                                    /></td>
+                                <td>Informe a alíquota de pagamento do simples em que a sua empresa se encaixa. Lembrando que
+                                    varia de acordo com o seu faturamento, por exemplo para o comércio: 4%, 5.7%, 6.84%,
+                                    e assim em diante.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Taxas da maquineta de cartão de crédito/débito</td>
+                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="taxaCartao" name="taxaCartao"
+                                    /></td>
+                                <td>Cada operadora de maquineta de cartão cobra um percentual por cada transação realizada. Este
+                                    percentual varia para compras no débito ou crédito e também quando são parceladas. Você
+                                    pode calcular uma média a partir do histórico de suas vendas ou na dúvida utilizar a
+                                    maior taxa cobrada, assim assegura todas as demais.</td>
+                            </tr>
+                            <tr>
+                                <td>Comissão do vendedor</td>
+                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="comissaoVendedor" name="comissaoVendedor"
+                                    /></td>
+                                <td>Se sua empresa oferece comissão aos vendedores então o percentual pago deve ser informado
+                                    aqui.</td>
+                            </tr>
+                            <tr>
+                                <td>Taxas adicionais</td>
+                                <td><input type="number" (keyup)="recalcularPrecos()" formControlName="taxasAdicionais" name="taxasAdicionais"
+                                    /></td>
+                                <td>Existem outras taxas que incidem sobre o seu negócio? como percentual destinado a cobrir
+                                    um programa de fidelização ou que cobre avarias/furtos, entre outros? Informe aqui.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Se existir um valor em R$ que queira acrescentar a cada produto informe abaixo:</p>
+                    <div class="well"><small>Por exemplo, sabendo que em média os custos da sacola utilizada para embalar os produtos, em cada venda, é de R$ 2,00. Basta informar o valor 2 que ele será acrescentado ao valor de cada produto.</small></div>
+                    <p><strong>Custos adicionais em R$</strong></p>
+                    <p> <input type="number" (keyup)="recalcularPrecos()" formControlName="valorAdicional" name="valorAdicional"
+                        />
+                    </p>
+
+                    <div *ngIf="nfeService.produtos.length != 0 && nfeService.agreement == true" style="margin:10px 0 0 0">
+                        <p><a href="#contribution" onclick="$('#menu li:eq(3) a').tab('show')" aria-controls="danfe" role="tab"
+                                data-toggle="tab" a class="btn btn-primary">Próximo passo <span class="glyphicon glyphicon-arrow-right"></span></a></p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <ng-template #elseBlockAgreement>
+        <div class="well">
+            {{nfeService.agreementMessage}}
+        </div>
+    </ng-template>
+    <ng-template #elseBlock>
+        <div class="well">
+            {{nfeService.emptyDanfeMessage}}
+        </div>
+    </ng-template>
+</form>

@@ -14,8 +14,15 @@ describe('NotaFiscalEletronicaService', () => {
   }));
 
   it('should extract all products from DANFE', inject([NotaFiscalEletronicaService], (service: NotaFiscalEletronicaService) => {
-    let produtos = service.extrairProdutos(xml);
+    let produtos = service.extrairProdutos(null);
     expect(produtos.length).toBeGreaterThan(0);
-    expect(service).toBeTruthy();
+    
+  }));
+
+  it('should return true for a valid DANFE', inject([NotaFiscalEletronicaService], (service: NotaFiscalEletronicaService) => {
+    // a valid DANFE
+    let produtos = service.extrairProdutos(null);
+    expect(produtos.length).toBe(0);
+    
   }));
 });

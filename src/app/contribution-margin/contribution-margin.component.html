@@ -1,0 +1,46 @@
+<form>
+    <div *ngIf="nfeService.produtos.length != 0; else elseBlock">
+        <div *ngIf="nfeService.agreement != false; else elseBlockAgreement">
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    <h3 class="panel-title primary">Informe a margem de contribuição desejada</h3>
+                </div>
+                <div class="panel-body">
+
+                    <p>De modo simplificado, a margem de contribuição representa o <strong>"lucro bruto" esperado</strong> pelo
+                        empreendedor, em uma venda, após o pagamento de todas as despesas para a aquisição e venda de um
+                        produto.Você pode estar se perguntando por que "lucro bruto", isto é, o valor obtido ainda deve ser usado para o pagamento das despesas fixas do empreendimento (ponto de equílibrio). Após isto ele se torna, de fato, lucro para o empreendedor.</p>
+                    <p>Mais informações sobre como realizar este cálculo podem ser obtidas <a href="https://www.sebrae.com.br/sites/PortalSebrae/bis/cartilha-saiba-mais-o-que-e-margem-de-contribuicao,a45ab88efc047410VgnVCM2000003c74010aRCRD"
+                            target="_blank">neste link</a> do Sebrae.</p>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Exemplo</h3>
+                        </div>
+                        <div class="panel-body">
+                            Considerando um empreendedor que define uma margem de contribuição de 20%. Para um produto cujo custo de compra e venda (valor de compra do produto, impostos, comissão de venda, taxas, entre outros) é de R$ 80, o valor sugerido de venda pelo sistema será de R$ 100 ( R$ 80 dos custos do produto + R$ 20 referente aos 20% de margem de contribuição desejados pelo empreendedor que será aplicado sobre os R$ 100 do valor de venda).
+                        </div>
+                    </div>
+                    <p>O valor informado deve variar de <strong>0 a 100</strong> e representa quantos porcento do valor de venda de um produto
+                        deve ser retornado ao empreendedor.</p>
+                    <strong>Margem de contribuição desejada</strong><br/>
+                    <input type="number" (keyup)="redefinirMargemContribuicao()" name="margemContribuicao" [(ngModel)]="margemContribuicao" /> %
+                    <div *ngIf="nfeService.produtos.length != 0 && nfeService.agreement == true" style="margin:10px 0 0 0">
+                        <p><a href="#calculation" onclick="$('#menu li:eq(4) a').tab('show')" aria-controls="danfe" role="tab"
+                                data-toggle="tab" a class="btn btn-primary">Próximo passo <span class="glyphicon glyphicon-arrow-right"></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #elseBlockAgreement>
+        <div class="well">
+            {{nfeService.agreementMessage}}
+        </div>
+    </ng-template>
+    <ng-template #elseBlock>
+        <div class="well">
+            {{nfeService.emptyDanfeMessage}}
+        </div>
+    </ng-template>
+</form>

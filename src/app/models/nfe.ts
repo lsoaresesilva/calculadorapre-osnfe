@@ -1,16 +1,16 @@
 export class NFE {
-    percentualDespesasFixas:number;
-    percentualSimples:number;
-    percentualCartao:number;
-    comissaoVendas:number;
-    taxasAdicionais:number;
-    margemLucro:number;
-    valorAdicional:number;
-    percentualFrete:number;
-    percentualFronteira:number;
-    margemContribuicao:number;
+    percentualDespesasFixas: number;
+    percentualSimples: number;
+    percentualCartao: number;
+    comissaoVendas: number;
+    taxasAdicionais: number;
+    margemLucro: number;
+    valorAdicional: number;
+    percentualFrete: number;
+    percentualFronteira: number;
+    margemContribuicao: number;
 
-    constructor(){
+    constructor() {
         /*this.percentualDespesasFixas = 0.43 // as despesas fixas representam 50% do que entra na loja (total anual de despesas fixas ÷ total anual de vendas x 100).
         this.percentualSimples = 0.045;
         this.percentualCartao = 0.05;
@@ -32,8 +32,14 @@ export class NFE {
         this.margemContribuicao = 50;
     }
 
-    extrairProduto(){
+    static isValidFile(file) {
+        if (file.length > 0) {
+            if (file[0].type == "text/xml") {
+                return true;
+            }
+        }
 
+        return false;
     }
 
 

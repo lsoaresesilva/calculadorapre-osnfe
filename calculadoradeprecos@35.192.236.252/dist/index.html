@@ -8,8 +8,35 @@
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Calcule automaticamente os preços dos seus produtos de forma simples, rápida e completa. E o melhor, sem precisar utilizar nenhum planilha. Para a formação do preço de venda utilizamos fórmulas como markup e margem de contribuição, abstraindo toda a complexidade para a sua empresa.">
-  
+  <meta name="description" content="Calcule automaticamente os preços dos seus produtos de forma simples, rápida e completa. E o melhor, sem precisar utilizar nenhum planilha. Utilizamos fórmulas como markup e margem de contribuição, abstraindo toda a complexidade para a sua empresa.">
+  <script>
+    window.onerror = function (message, url, lineNo, colNo, error) {
+
+      console.log(arguments);
+
+      let container = document.createElement('div');
+
+      container.style.color = 'red';
+      container.style.position = 'fixed';
+      container.style.background = '#eee';
+      container.style.padding = '2em';
+      container.style.top = '1em';
+      container.style.left = '1em';
+
+      let msg = document.createElement('pre');
+      msg.innerText = [
+        'Message: ' + message,
+        'URL: ' + url,
+        'Line: ' + lineNo,
+        'Column: ' + colNo,
+        'Stack: ' + (error && error.stack)
+      ].join('\n');
+
+      container.appendChild(msg);
+
+      document.body.appendChild(container);
+    };
+  </script>
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
     (adsbygoogle = window.adsbygoogle || []).push({
@@ -36,7 +63,7 @@
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.5.0/intro.min.js"></script>
-</head>
+<link href="styles.728b592a56c4e50c0abc.bundle.css" rel="stylesheet"/></head>
 
 <body>
   <p-growl [(value)]="statusMessages"></p-growl>
@@ -61,7 +88,7 @@
               <div style="margin-bottom:30px;">
                 <h1 style="font-size:36px" class="text-center">Calcule facilmente o preço dos seus produtos!</h1>
               </div>
-              <p>Nosso serviço calcula automaticamente os preços de venda para todos os produtos de uma nota fiscal eletrônica
+              <p>Nosso serviço sugere automaticamente os preços de venda para todos os produtos de uma nota fiscal eletrônica
                 - DANFE (XML).</p>
               <div class="row" style="margin-bottom:50px;">
                 <div class="col-md-4  text-center">
@@ -83,7 +110,7 @@
                     <span class="advantages-header">Cálculo automático</span>
                   </div>
                   <div class="row">
-                    <span class="advantages-sub-text">Formação do preço de venda de todos os produtos com poucos cliques!</span>
+                    <span class="advantages-sub-text">Calcule o preço de todos os produtos com poucos cliques!</span>
                   </div>
                 </div>
                 <div class="col-md-4 text-center">
@@ -114,7 +141,7 @@
                 <tr>
                   <td><img src="../../assets/margem_de_contribuicao.png" alt="Defina o ganho bruto que deseja para cada produto e o resto é conosco!"
                       class="iconUsageAlignment" /></td>
-                  <td><span class="how-to-use-header">Defina a margem de contribuição desejada (lucro)</span></td>
+                  <td><span class="how-to-use-header">Defina a margem de contribuição desejada</span></td>
                 </tr>
               </table>
 
@@ -141,11 +168,7 @@
       </div>
       <div class="col-md-1"></div>
     </div>
-  <!-- BEGIN JIVOSITE CODE {literal} -->
-<script type='text/javascript'>
-(function(){ var widget_id = 'xmSGqvEw2X';var d=document;var w=window;function l(){
-var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
-<!-- {/literal} END JIVOSITE CODE -->
-</body>
+  
+<script type="text/javascript" src="inline.c28c7f79ba029f3311f6.bundle.js"></script><script type="text/javascript" src="polyfills.652ef966ac5414a711ed.bundle.js"></script><script type="text/javascript" src="vendor.30af3224c0dda1948065.bundle.js"></script><script type="text/javascript" src="main.35ae6cefa5c9630a4d75.bundle.js"></script></body>
 
 </html>

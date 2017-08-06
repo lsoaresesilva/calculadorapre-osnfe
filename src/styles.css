@@ -12,3 +12,15 @@
     font-family: 'Titillium Web', Lato, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
     font-weight: 300;
 }
+
+.iconUsageAlignment{
+    margin:0px 20px 10px;
+}
+
+.tabLink{
+    color: #ffffff;
+}
+
+.tabLink:hover{
+    color: #026AA7;
+}
