@@ -12,6 +12,14 @@ import { CostsComponent } from './costs/costs.component';
 import { ContributionMarginComponent } from './contribution-margin/contribution-margin.component';
 import { PriceCalculationComponent } from './price-calculation/price-calculation.component';
 import { NotaFiscalEletronicaService } from "app/nota-fiscal-eletronica.service";
+import { ManualUploadComponent } from './manual-upload/manual-upload.component';
+import { ProductUploadComponent } from './product-upload/product-upload.component';
+import { Routes, RouterModule } from "@angular/router";
+
+const routes: Routes = [
+  {path: 'manual-upload', component: ManualUploadComponent},
+  {path: 'nfe-upload', component: NfeUploadComponent},
+];
 
 @NgModule({
   declarations: [
@@ -22,15 +30,18 @@ import { NotaFiscalEletronicaService } from "app/nota-fiscal-eletronica.service"
     CostsComponent,
     ContributionMarginComponent,
     PriceCalculationComponent,
+    ManualUploadComponent,
+    ProductUploadComponent,
     
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
-    GrowlModule
+    GrowlModule,
+    RouterModule.forRoot(routes, { useHash: false })
   ],
   providers: [NotaFiscalEletronicaService],
-  bootstrap: [NfeUploadComponent, CostsComponent, ContributionMarginComponent, PriceCalculationComponent]
+  bootstrap: [ProductUploadComponent, CostsComponent, ContributionMarginComponent, PriceCalculationComponent]
 })
 export class AppModule { }

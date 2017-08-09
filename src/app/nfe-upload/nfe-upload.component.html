@@ -1,21 +1,6 @@
-<form>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Importe o XML (DANFE) da sua NFE</h3>
-  </div>
-  <div class="panel-body">
-    <p>Faça a <strong>importação do XML (DANFE)</strong> da sua nota fiscal eletrônica (NFE). Este arquivo, de extensão .xml,
-      é enviado pelo seu fornecedor para o e-mail de sua empresa.
-    </p>
-    <div style="margin:20px 0 20px 0">
-      <input type="file" accept=".xml" (change)="openFile($event)" style="margin:10px 0 10px 0">
-    </div>
-    <div class="well">
-      <input id="agreement" type="checkbox" value="false" (change)="setAgreement($event)" name="agreement"/><label for="agreement" style="display:inline"> <small> Concordo em utilizar este serviço sabendo que os valores calculados são sugestivos e passíveis de falhas. Desta forma devem ser validados pelo empresário e/ou contador da empresa, não sendo de responsabilidade desta empresa quaisquer usos indevidos do mesmo.</small></label>
-    </div>
-    <div *ngIf="nfeService.produtos.length != 0 && agreement == true">
-      <p><a href="#costs" onclick="$('#menu li:eq(2) a').tab('show')" aria-controls="danfe" role="tab" data-toggle="tab" a class="btn btn-primary">Próximo passo <span class="glyphicon glyphicon-arrow-right"></span></a></p>
-    </div>
-  </div>
+<p>Faça a <strong>importação do XML (DANFE)</strong> da sua nota fiscal eletrônica (NFE). Este arquivo, de extensão .xml, é
+  enviado pelo seu fornecedor para o e-mail de sua empresa.
+</p>
+<div style="margin:20px 0 20px 0">
+  <input type="file" accept=".xml" (change)="openFile($event)" style="margin:10px 0 10px 0">
 </div>
-</form>

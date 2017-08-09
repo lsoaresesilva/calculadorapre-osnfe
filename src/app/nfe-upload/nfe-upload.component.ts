@@ -27,12 +27,12 @@ export class NfeUploadComponent implements OnInit {
     this.nfeService.readNFE(input);
     if (this.nfeService.produtos != null && this.nfeService.produtos.length > 0) {
       this.statusMessages.push({ severity: 'success', summary: 'DANFE importado com sucesso', detail: 'O próximo passo é informar os custos.' });
+    }else{
+      this.statusMessages.push({ severity: 'error', summary: 'Falha ao importar o DANFE', detail: 'Não é possível utilizar este DANFE.' });
     }
   }
 
-  setAgreement(event) {
-    this.nfeService.setAgreement(event.target.checked);
-  }
+  
 
 
 }

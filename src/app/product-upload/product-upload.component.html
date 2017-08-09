@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Como os dados dos seus produtos serão informados ao sistema?</h3>
+  </div>
+  <div class="panel-body">
+    <div class="text-center">
+
+      <div class="text-justify">
+        <p>A primeira etapa na formação do preço de venda dos seus produtos é informar para nós alguns dados das mercadorias,
+          como o seu valor de compra do fornecedor e o percentual de IPI, quando houver.</p>
+        <p>Você pode fazer isto manualmente, produto por produto, ou caso possua o DANFE (XML) de sua Nota Fiscal Eletrônica
+          basta importá-lo que nós extrairemos estas informações automaticamente.</p>
+
+        <p><strong>E então, como vai informar os dados dos seus produtos?</strong></p>
+      </div>
+
+      <div class="row text-center">
+        <div class="col-md-6">
+          <button type="button" class="btn btn-primary btn-lg" (click)="openUpload('manual')">Manualmente</button>
+        </div>
+        <div class="col-md-6">
+          <button type="button" class="btn btn-primary btn-lg" (click)="openUpload('')">Automaticamente, irei importar de uma DANFE (XML)</button>
+        </div>
+      </div>
+      <div class="row" style="margin-top:30px;">
+        <div class="col-md-12">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+      <div class="well">
+        <input id="agreement" type="checkbox" value="false" (change)="setAgreement($event)" name="agreement" /><label for="agreement"
+          style="display:inline"> <small> Concordo em utilizar este serviço sabendo que os valores calculados são sugestivos e passíveis de falhas. Desta forma devem ser validados pelo empresário e/ou contador da empresa, não sendo de responsabilidade desta empresa quaisquer usos indevidos do mesmo.</small></label>
+      </div>
+      <div *ngIf="nfeService.produtos.length != 0 && nfeService.agreement == true">
+        <p><a href="#costs" onclick="$('#menu li:eq(2) a').tab('show')" aria-controls="danfe" role="tab" data-toggle="tab" a
+            class="btn btn-primary">Próximo passo <span class="glyphicon glyphicon-arrow-right"></span></a></p>
+      </div>
+    </div>
+
+  </div>
+</div>

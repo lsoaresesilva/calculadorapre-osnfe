@@ -9,7 +9,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Calcule automaticamente os preços dos seus produtos de forma simples, rápida e completa. E o melhor, sem precisar utilizar nenhum planilha. Para a formação do preço de venda utilizamos fórmulas como markup e margem de contribuição, abstraindo toda a complexidade para a sua empresa.">
-  
+
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
     (adsbygoogle = window.adsbygoogle || []).push({
@@ -40,112 +40,116 @@
 
 <body>
   <p-growl [(value)]="statusMessages"></p-growl>
-  
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
 
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist" style="background: #026AA7" id="menu">
-          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="home">Home</a></li>
-          <li role="presentation"><a href="#danfe" class="tabLink" aria-controls="danfe" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-upload"></span> Importar NFE (XML)</a></li>
-          <li role="presentation"><a href="#costs" class="tabLink" aria-controls="costs" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-minus-sign"></span> Custos do produto</a></li>
-          <li role="presentation"><a href="#contribution" class="tabLink" aria-controls="contribution" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus-sign"></span> Margem de contribuição (lucro)</a></li>
-          <li role="presentation"><a href="#calculation" class="tabLink" aria-controls="calculation" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-check"></span> Calcular preços</a></li>
-        </ul>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
 
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="home">
-            <div class="jumbotron" style="padding:10px 15px 15px">
-              <div style="margin-bottom:30px;">
-                <h1 style="font-size:36px" class="text-center">Calcule facilmente o preço dos seus produtos!</h1>
-              </div>
-              <p>Nosso serviço calcula automaticamente os preços de venda para todos os produtos de uma nota fiscal eletrônica
-                - DANFE (XML).</p>
-              <div class="row" style="margin-bottom:50px;">
-                <div class="col-md-4  text-center">
-                  <div class="row">
-                    <img src="../../assets/economia_tempo.png" alt="Ganhe tempo com o cálculo automático dos preços dos seus produtos." />
-                  </div>
-                  <div class="row" style="margin-top:20px">
-                    <span class="advantages-header">Economia de tempo</span>
-                  </div>
-                  <div class="row">
-                    <span class="advantages-sub-text">Não se preocupe com as complexidades e ganhe tempo!</span>
-                  </div>
-                </div>
-                <div class="col-md-4 text-center">
-                  <div class="row">
-                    <img src="../../assets/calculo_automatico.png" alt="Calcular o preço de vários produtos nunca foi tão fácil!" />
-                  </div>
-                  <div class="row" style="margin-top:20px">
-                    <span class="advantages-header">Cálculo automático</span>
-                  </div>
-                  <div class="row">
-                    <span class="advantages-sub-text">Formação do preço de venda de todos os produtos com poucos cliques!</span>
-                  </div>
-                </div>
-                <div class="col-md-4 text-center">
-                  <div class="row">
-                    <img src="../../assets/gratis.png" alt="Nosso serviço de cálculo de preço de produtos é gratuito!" />
-                  </div>
-                  <div class="row" style="margin-top:20px">
-                    <span class="advantages-header">Serviço gratuito</span>
-                  </div>
-                  <div class="row">
-                    <span class="advantages-sub-text">E o melhor de tudo, é <strong>GRÁTIS</strong>!</span>
-                  </div>
-                </div>
-              </div>
-              <p class="text-center">É super simples, são apenas 3 passos:</p>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist" style="background: #026AA7" id="menu">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="home">Home</a></li>
+        <li role="presentation"><a href="#danfe" class="tabLink" aria-controls="danfe" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-upload"></span> Informar dados dos produtos</a></li>
+        <li role="presentation"><a href="#costs" class="tabLink" aria-controls="costs" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-minus-sign"></span> Custos do produto</a></li>
+        <li role="presentation"><a href="#contribution" class="tabLink" aria-controls="contribution" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus-sign"></span> Margem de contribuição (lucro)</a></li>
+        <li role="presentation"><a href="#calculation" class="tabLink" aria-controls="calculation" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-check"></span> Calcular preços</a></li>
+        <li role="presentation"><a href="http://blog.calculadoradeprecos.com.br" class="tabLink"><span class="glyphicon glyphicon-check"></span> Blog</a></li>
+      </ul>
 
-              <table style="margin: auto;">
-                <tr>
-                  <td><img src="../../assets/upload_danfe.png" alt="Todo o cálculo é realizado a partir dos produtos de sua DANFE."
-                      class="iconUsageAlignment" /></td>
-                  <td><span class="how-to-use-header">Importe a sua NFE (DANFE)</span></td>
-                </tr>
-                <tr>
-                  <td><img src="../../assets/custos_produtos.png" alt="O cálculo considera informações sobre o valor do frete, IPI, comissões de vendas, entre outros."
-                      class="iconUsageAlignment" /></td>
-                  <td><span class="how-to-use-header">Informe os seus custos básicos</span></td>
-                </tr>
-                <tr>
-                  <td><img src="../../assets/margem_de_contribuicao.png" alt="Defina o ganho bruto que deseja para cada produto e o resto é conosco!"
-                      class="iconUsageAlignment" /></td>
-                  <td><span class="how-to-use-header">Defina a margem de contribuição desejada (lucro)</span></td>
-                </tr>
-              </table>
-
-              <p class="text-center"><a onclick="$('#menu li:eq(1) a').tab('show')" href="#danfe" aria-controls="danfe" role="tab" data-toggle="tab"
-                  a class="btn btn-primary btn-lg">Comece agora mesmo, é grátis!</a></p>
-
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+          <div class="jumbotron" style="padding:10px 15px 15px">
+            <div style="margin-bottom:30px;">
+              <h1 style="font-size:36px" class="text-center">Calcule facilmente o preço dos seus produtos!</h1>
             </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="danfe">
-            <app-nfe-upload></app-nfe-upload>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="costs">
+            <p class="text-center">Nosso serviço calcula automaticamente os preços de venda para a sua empresa, sem cadastros, planilhas e dificuldades.</p>
+            <div class="row" style="margin-bottom:50px;">
+              <div class="col-md-4  text-center">
+                <div class="row">
+                  <img src="../../assets/economia_tempo.png" alt="Ganhe tempo com o cálculo automático dos preços dos seus produtos." />
+                </div>
+                <div class="row" style="margin-top:20px">
+                  <span class="advantages-header">Economia de tempo</span>
+                </div>
+                <div class="row">
+                  <span class="advantages-sub-text">Não se preocupe com as complexidades e ganhe tempo!</span>
+                </div>
+              </div>
+              <div class="col-md-4 text-center">
+                <div class="row">
+                  <img src="../../assets/calculo_automatico.png" alt="Calcular o preço de vários produtos nunca foi tão fácil!" />
+                </div>
+                <div class="row" style="margin-top:20px">
+                  <span class="advantages-header">Cálculo automático</span>
+                </div>
+                <div class="row">
+                  <span class="advantages-sub-text">Formação do preço de venda de todos os produtos com poucos cliques!</span>
+                </div>
+              </div>
+              <div class="col-md-4 text-center">
+                <div class="row">
+                  <img src="../../assets/gratis.png" alt="Nosso serviço de cálculo de preço de produtos é gratuito!" />
+                </div>
+                <div class="row" style="margin-top:20px">
+                  <span class="advantages-header">Serviço gratuito</span>
+                </div>
+                <div class="row">
+                  <span class="advantages-sub-text">E o melhor de tudo, é <strong>GRÁTIS</strong>!</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-center">É super simples, são apenas 3 passos:</p>
 
-            <app-costs></app-costs>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="contribution">
-            <app-contribution-margin></app-contribution-margin>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="calculation">
-            <app-price-calculation></app-price-calculation>
+            <table style="margin: auto;">
+              <tr>
+                <td><img src="../../assets/upload_danfe.png" alt="Todo o cálculo é realizado a partir dos produtos de sua DANFE."
+                    class="iconUsageAlignment" /></td>
+                <td><span class="how-to-use-header">Importe a sua NFE (DANFE) ou informe os produtos</span></td>
+              </tr>
+              <tr>
+                <td><img src="../../assets/custos_produtos.png" alt="O cálculo considera informações sobre o valor do frete, IPI, comissões de vendas, entre outros."
+                    class="iconUsageAlignment" /></td>
+                <td><span class="how-to-use-header">Informe os seus custos básicos</span></td>
+              </tr>
+              <tr>
+                <td><img src="../../assets/margem_de_contribuicao.png" alt="Defina o ganho bruto que deseja para cada produto e o resto é conosco!"
+                    class="iconUsageAlignment" /></td>
+                <td><span class="how-to-use-header">Defina a margem de contribuição desejada (lucro)</span></td>
+              </tr>
+            </table>
+
+            <p class="text-center"><a onclick="$('#menu li:eq(1) a').tab('show')" href="#danfe" aria-controls="danfe" role="tab" data-toggle="tab"
+                a class="btn btn-primary btn-lg">Comece agora mesmo, é grátis!</a></p>
+
           </div>
         </div>
+        <div role="tabpanel" class="tab-pane" id="danfe">
+          <app-product-upload></app-product-upload>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="costs">
 
+          <app-costs></app-costs>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="contribution">
+          <app-contribution-margin></app-contribution-margin>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="calculation">
+          <app-price-calculation></app-price-calculation>
+        </div>
       </div>
-      <div class="col-md-1"></div>
+
     </div>
+    <div class="col-md-1"></div>
+  </div>
   <!-- BEGIN JIVOSITE CODE {literal} -->
-<script type='text/javascript'>
-(function(){ var widget_id = 'xmSGqvEw2X';var d=document;var w=window;function l(){
-var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
-<!-- {/literal} END JIVOSITE CODE -->
+  <script type='text/javascript'>
+    (function () {
+      var widget_id = 'xmSGqvEw2X'; var d = document; var w = window; function l() {
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/' + widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);
+      } if (d.readyState == 'complete') { l(); } else { if (w.attachEvent) { w.attachEvent('onload', l); } else { w.addEventListener('load', l, false); } }    
+})();
+  </script>
+  <!-- {/literal} END JIVOSITE CODE -->
 </body>
 
 </html>

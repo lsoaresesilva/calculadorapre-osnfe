@@ -14,6 +14,7 @@ export class Produto{
     constructor(nfe:NFE){
         this.nfe = nfe
         this.valorVenda = 0;
+        this.quantidade = 0;
     }
 
     

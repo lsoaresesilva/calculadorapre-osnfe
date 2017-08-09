@@ -11,11 +11,11 @@ export class NotaFiscalEletronicaService {
   agreement: boolean;
 
   // TODO: change it from here.
-  emptyDanfeMessage: string = "Primeiro você precisa importar o XML (DANFE) da sua nota fiscal eletrônica.";
+  emptyDanfeMessage: string = "Primeiro você precisa adicionar produtos.";
   agreementMessage: string = "É preciso aceitar os termos de uso deste serviço antes de prosseguir."
 
   constructor() {
-    this.produtos = [];
+    this.resetarProdutos();
     this.nfe = new NFE();
     this.agreement = false;
   }
@@ -25,40 +25,38 @@ export class NotaFiscalEletronicaService {
 
   }
 
-  calcularValorVenda(){
+  calcularValorVenda() {
     for (let i = 0; i < this.produtos.length; i++) {
-      
-      let calculadora: Calculadora = new Calculadora(this.produtos[i]);
-      this.produtos[i].valorVenda = calculadora.calcularValorProduto();
-      this.produtos[i].margemContribuicao = calculadora.calcularMargemContribuicao(this.produtos[i].valorVenda);
-      
+
+      this.calcularValorVendaPorProduto(this.produtos[i]);
+
     }
-    
-  }  
+
+  }
 
   atualizarMargemContribuicao(produto: Produto) {
-        let calculadora: Calculadora = new Calculadora(produto);
-        produto.margemContribuicao = calculadora.calcularMargemContribuicao(produto.valorVenda);
-    }
+    let calculadora: Calculadora = new Calculadora(produto);
+    produto.margemContribuicao = calculadora.calcularMargemContribuicao(produto.valorVenda);
+  }
 
-  redefinirMargemContribuicao(margemContribuicao){
+  redefinirMargemContribuicao(margemContribuicao) {
     this.nfe.margemContribuicao = margemContribuicao;
     this.calcularValorVenda();
   }
 
   redefinirCustos(formCustos) { // TODO: passar dado no formato {objeto} ao invés de formCustos
     this.nfe.percentualFrete = formCustos.value.frete / 100;
-      this.nfe.percentualFronteira = formCustos.value.fronteira / 100;
-      this.nfe.comissaoVendas = formCustos.value.comissaoVendedor / 100;
-      this.nfe.percentualSimples = formCustos.value.aliquotaSimples / 100;
-      this.nfe.percentualCartao = formCustos.value.taxaCartao / 100;
-      this.nfe.comissaoVendas = formCustos.value.comissaoVendedor / 100;
-      this.nfe.taxasAdicionais = formCustos.value.taxasAdicionais / 100;
-      this.nfe.valorAdicional = Number(formCustos.value.valorAdicional);
-      this.nfe.margemLucro = 0//formCustos.value.margemLucro / 100;
-      this.nfe.percentualDespesasFixas = 0//formCustos.value.despesasFixas / 100;
-      this.nfe.margemContribuicao = Number(formCustos.value.margemContribuicao);
-      this.calcularValorVenda();
+    this.nfe.percentualFronteira = formCustos.value.fronteira / 100;
+    this.nfe.comissaoVendas = formCustos.value.comissaoVendedor / 100;
+    this.nfe.percentualSimples = formCustos.value.aliquotaSimples / 100;
+    this.nfe.percentualCartao = formCustos.value.taxaCartao / 100;
+    this.nfe.comissaoVendas = formCustos.value.comissaoVendedor / 100;
+    this.nfe.taxasAdicionais = formCustos.value.taxasAdicionais / 100;
+    this.nfe.valorAdicional = Number(formCustos.value.valorAdicional);
+    this.nfe.margemLucro = 0//formCustos.value.margemLucro / 100;
+    this.nfe.percentualDespesasFixas = 0//formCustos.value.despesasFixas / 100;
+    this.nfe.margemContribuicao = Number(formCustos.value.margemContribuicao);
+    this.calcularValorVenda();
   }
 
   extrairProdutos(xml) {
@@ -129,17 +127,38 @@ export class NotaFiscalEletronicaService {
 
             /*produtoNfe.valorVenda = calculadora.calcularValorProduto();
             produtoNfe.margemContribuicao = calculadora.calcularMargemContribuicao(produtoNfe.valorVenda);*/
-           
-            this.produtos.push(produtoNfe);
+
+            this.addProduct(produtoNfe); // TO TEST
           }
 
-          this.calcularValorVenda();
+          
         }
         reader.readAsText(input.files[index]);
 
       }
 
     }
+
+
+  }
+
+  addProduct(produto: Produto) {
+    this.produtos.push(produto);
+    this.calcularValorVendaPorProduto(produto); // TO TEST
+  }
+
+  calcularValorVendaPorProduto(produto){
+    let calculadora: Calculadora = new Calculadora(produto);
+      produto.valorVenda = calculadora.calcularValorProduto();
+      produto.margemContribuicao = calculadora.calcularMargemContribuicao(produto.valorVenda);
+  }
+
+  removerProduto(index){
+    this.produtos.splice(index, 1);
+  }
+
+  resetarProdutos(){
+    this.produtos = [];
   }
 
 
